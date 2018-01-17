@@ -122,12 +122,13 @@ class Item
     /**
      * [price - Set the price of the product, do not format before passing]
      * @param  [type] $price [description]
+     * @param  string $currency
      * @return [type]        [description]
      */
-    public function price($price)
+    public function price($price, $currency)
     {
         $node = new Node('price');
-        $this->nodes['price'] = $node->value(number_format($price, 2, '.', ''))->_namespace($this->namespace);
+        $this->nodes['price'] = $node->value(number_format($price, 2, '.', '') . ' ' . $currency)->_namespace($this->namespace);
     }
 
     /**
